@@ -26,6 +26,7 @@ class adminController extends Controller
     }
     public function storepredict(Request $request)
     {
+        set_time_limit(1000);
         $response = Http::get('http://rizalanhari.pythonanywhere.com/predictA', [
             'train' => $request->input('train'),
             'test' => $request->input('test'),
