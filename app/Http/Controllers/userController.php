@@ -13,19 +13,19 @@ class userController extends Controller
     }
     public function data()
     {
-        $dataTrain = Http::get('http://127.0.0.1:5000/datatrain');
+        $dataTrain = Http::get('http://rizalanhari.pythonanywhere.com/datatrain');
         $dataTrain = json_decode($dataTrain, true);
         return view('user.data')->with('dataTrain', $dataTrain);
     }
     public function predict()
     {
-        $response = Http::get('http://127.0.0.1:5000/question');
+        $response = Http::get('http://rizalanhari.pythonanywhere.com/question');
         $response = json_decode($response, true);
         return view('user.predict')->with('data', $response);
     }
     public function storepredict(Request $request)
     {
-        $response = Http::get('http://127.0.0.1:5000/predict', [
+        $response = Http::get('http://rizalanhari.pythonanywhere.com/predict', [
             'data0' => (int)$request->input('pertanyaan0'),
             'data1' => (int)$request->input('pertanyaan1'),
             'data2' => (int)$request->input('pertanyaan2'),

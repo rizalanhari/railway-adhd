@@ -14,9 +14,9 @@ class adminController extends Controller
     }
     public function data()
     {
-        $dataTrain = Http::get('http://127.0.0.1:5000/datatrain');
+        $dataTrain = Http::get('http://rizalanhari.pythonanywhere.com/datatrain');
         $dataTrain = json_decode($dataTrain, true);
-        $dataTest = Http::get('http://127.0.0.1:5000/datatest');
+        $dataTest = Http::get('http://rizalanhari.pythonanywhere.com/datatest');
         $dataTest = json_decode($dataTest, true);
         return view('admin.data')->with('dataTrain', $dataTrain)->with('dataTest', $dataTest);
     }
@@ -26,7 +26,7 @@ class adminController extends Controller
     }
     public function storepredict(Request $request)
     {
-        $response = Http::get('http://127.0.0.1:5000/predictA', [
+        $response = Http::get('http://rizalanhari.pythonanywhere.com/predictA', [
             'train' => $request->input('train'),
             'test' => $request->input('test'),
             'lrate' => $request->input('lrate'),
